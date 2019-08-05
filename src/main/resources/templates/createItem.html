@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app="app"
+        lang="cs" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, person-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Review App</title>
+    <link th:if="${mode == 'development'}" rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}"/>
+    <link th:if="${mode == 'production'}" rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}"/>
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/app/createItem.controller.js" th:src="@{/app/createItem.controller.js}"></script>
+
+</head>
+<body ng-controller="itemController" >
+<header style="position: relative; left: 0; top: 0; width: 100%; background-color: #6db33f;">
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <a class="navbar-brand" href="/">Review App</a>
+                <span><a sec:authorize="hasRole('ROLE_ADMIN')" class="navbar-brand" href="/admin">Admin</a></span>
+                <span><a sec:authorize="isAnonymous()" class="navbar-brand" th:href="@{~/login}">Přihlásit</a></span>
+                <span><a sec:authorize="isAuthenticated()" class="navbar-brand" href="/logout">Odhlásit</a></span>
+
+            </div>
+            <p sec:authorize="isAuthenticated()" class="navbar-text"  style="margin-right: 10px;">Signed in as <span sec:authentication="name"></span></p>
+        </div>
+    </nav>
+</header>
+<div>
+    <div class="row">
+        <div class="col-lg-auto offset-2 align-content-center" >
+            <h1>Vytvoření nové položky</h1>
+             <form ng-submit="submitItemForm()">
+                 <label for="name" >Název: </label><br />
+                 <input type="text" id="name" ng-model="item.name" required="true"/> <br />
+
+                 <label for="author">Autor: </label><br />
+                 <input type="text" id="author" ng-model="item.author" required="true" /> <br />
+
+                 <label for="type">Typ: </label><br />
+                 <input type="text" id="type" ng-model="item.type" required="true" /> <br />
+
+                 <label for="year" >Rok: </label><br />
+                 <input type="text" id="year" ng-model="item.year" required="true"/> <br /><br />
+
+                 <label for="genre" >Žánr: </label><br />
+                 <input type="text" id="genre" ng-model="item.genre" required="true"/> <br />
+
+                 <label for="textShort">Popisek: </label><br />
+                 <input type="text" id="textShort" ng-model="item.textShort" /> <br />
+
+                 <label for="textLong" >Text: </label><br />
+                 <textarea cols="120" rows="5" id="textLong" ng-model="item.textLong" ></textarea> <br /><br />
+
+                 <input type="submit" value="Submit" />
+                 <input type="reset" ng-click="resetForm()" value="Reset" />
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<footer class="blockquote-footer" style="position: fixed; left: 0; bottom: 0; width: 100%; background-color: #6db33f;">
+    <div class="container">
+        <p>Projekt slouží pro bakalářskou práci - Štěpán Cellar 2019</p>
+        <p class="text-muted" th:text="${#dates.format(datetime,'dd MMM yyyy HH:mm')}">Page was rendered today.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
