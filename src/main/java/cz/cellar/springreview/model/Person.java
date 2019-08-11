@@ -1,6 +1,5 @@
 package cz.cellar.springreview.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.OnDelete;
@@ -8,10 +7,8 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
+//Modelová třída pro uživatele s JPA anotacemi
 @Entity
 @Table(name= "person")
 public class Person {
@@ -38,14 +35,6 @@ public class Person {
 
     public Person(){}
 
-   /* public Person(Person person){
-        this.role=person.getRole();
-        this.name=person.getName();
-        this.username=person.getUsername();
-        this.password=person.getPassword();
-        this.id=person.getId();
-    }*/
-
     public Person(@JsonProperty(value = "username") String username, @JsonProperty(value = "password") String password, @JsonProperty(value = "name") String name,  Role role) {
         this.username = username;
         this.password = password;
@@ -57,7 +46,6 @@ public class Person {
         this.password = password;
         this.name = name;
     }
-
 
     public String getUsername() {
         return username;

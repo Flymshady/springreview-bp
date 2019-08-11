@@ -10,7 +10,6 @@ app.controller('itemUpdateController', ['$scope', '$http', '$window', function($
     function init() {
         var id= document.getElementById("itemId").textContent;
         getById(id);
-
     };
 
     function getById(id) {
@@ -19,7 +18,6 @@ app.controller('itemUpdateController', ['$scope', '$http', '$window', function($
         itemDataPromise.then(function (response) {
             vm.itemData=response;
             setToTheFields();
-
         });
     };
 

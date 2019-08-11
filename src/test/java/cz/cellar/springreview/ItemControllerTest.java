@@ -20,7 +20,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.Collections;
 
-//unit test
+//Výpis 25, 26
+//Unit test třída
 @RunWith(SpringRunner.class)
 @WebMvcTest(ItemController.class)
 public class ItemControllerTest {
@@ -38,6 +39,7 @@ public class ItemControllerTest {
     @MockBean
     private CustomUserDetailsService customUserDetailsService;
 
+    //Testovací metoda pro získání položek
     @Test
     public void test() throws Exception {
      Mockito.when(itemRepository.findAll()).thenReturn(

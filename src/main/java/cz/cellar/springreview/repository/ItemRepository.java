@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//Repository pro Item
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
-    //jpa repository method
+    //jpa repository metoda
     List<Item> findByGenreEquals(String genre);
 }

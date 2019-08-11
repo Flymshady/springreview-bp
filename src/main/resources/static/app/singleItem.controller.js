@@ -7,20 +7,13 @@
 
     function SingleItemController($http) {
         var vm=this;
-
         vm.itemData={};
-
         vm.getById=getById;
-
-
-
-
 
         init();
         function init() {
             var id= document.getElementById("itemId").textContent;
             getById(id);
-
         }
 
         function getById(id) {

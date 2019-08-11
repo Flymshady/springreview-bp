@@ -49,8 +49,5 @@
         function errorCallback(error) {
             alert('Error occurred: '+error.data.message);
         }
-
-
-
     }
 })();

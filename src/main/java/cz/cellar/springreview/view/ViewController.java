@@ -1,13 +1,11 @@
 package cz.cellar.springreview.view;
 
-import cz.cellar.springreview.exception.UnauthorizedAccessException;
 import cz.cellar.springreview.model.CustomUserDetails;
 import cz.cellar.springreview.repository.ItemRepository;
 import cz.cellar.springreview.repository.PersonRepository;
 import cz.cellar.springreview.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
 
+//Výpis 17
+//Controller třída
 @Controller
 public class ViewController {
 
@@ -24,7 +24,7 @@ public class ViewController {
     private ReviewRepository reviewRepository;
     private ItemRepository itemRepository;
     private PersonRepository personRepository;
-    //constructor injection for app-mode (from application.properties)
+    //constructor injection pro app-mode (z application.properties)
     @Autowired
     public ViewController(Environment environment, PersonRepository personRepository, ReviewRepository reviewRepository, ItemRepository itemRepository){
         appMode=environment.getProperty("app-mode");

@@ -10,6 +10,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
+//Výpis 22
+//Třída implementující UserDetailsService rozhraní
+//Součást zabezpečení
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

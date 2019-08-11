@@ -8,7 +8,6 @@ public class UnauthorizedAccessException extends RuntimeException {
 
     private String resourceName;
 
-
     public UnauthorizedAccessException(String resourceName) {
         super(String.format("%s has no access", resourceName));
         this.resourceName = resourceName;
@@ -17,5 +16,4 @@ public class UnauthorizedAccessException extends RuntimeException {
     public String getResourceName() {
         return resourceName;
     }
-
 }

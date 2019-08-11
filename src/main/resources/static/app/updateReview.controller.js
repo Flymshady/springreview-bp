@@ -10,7 +10,6 @@ app.controller('reviewUpdateController', ['$scope', '$http', '$window', function
     function init() {
         var id= document.getElementById("reviewId").textContent;
         getById(id);
-
     };
 
     function getById(id) {
@@ -19,7 +18,6 @@ app.controller('reviewUpdateController', ['$scope', '$http', '$window', function
         reviewDataPromise.then(function (response) {
             vm.reviewData=response;
             setToTheFields();
-
         });
     };
 

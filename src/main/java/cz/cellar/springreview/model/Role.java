@@ -3,6 +3,7 @@ package cz.cellar.springreview.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+//Modelová třída pro roli s JPA anotacemi
 @Entity
 @Table(name = "role")
 public class Role {

@@ -83,6 +83,5 @@
                 vm.items=response.data;
             });
         }
-
     }
 })();

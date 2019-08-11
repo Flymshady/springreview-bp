@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+//Výpis 15, 20
+//Třída pro manipulaci s Item
 @RequestMapping("/api/items/")
 @RestController
 public class ItemController {
@@ -52,7 +54,6 @@ public class ItemController {
         Item item = itemRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("Item", "id", id));
 
-
         for (Review review : reviewRepository.findByItemId(id)){
             reviewRepository.delete(review);
         }
@@ -76,8 +77,5 @@ public class ItemController {
 
         Item updatedItem = itemRepository.save(item);
         return updatedItem;
-
-
     }
-
 }

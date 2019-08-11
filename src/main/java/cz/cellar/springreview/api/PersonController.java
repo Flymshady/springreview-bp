@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+//Třída pro manipulaci s Person
 @RestController
 @RequestMapping("/api/persons")
 public class PersonController {
@@ -47,5 +48,4 @@ public class PersonController {
 
         return personRepository.existsByUsername(username);
     }
-
 }

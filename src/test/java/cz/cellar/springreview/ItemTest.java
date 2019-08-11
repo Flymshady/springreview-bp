@@ -5,19 +5,15 @@ import cz.cellar.springreview.repository.ItemRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.Collections;
 import java.util.List;
 
+//Výpis 27
+//Integrační test
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class ItemTest {
@@ -54,7 +50,5 @@ public class ItemTest {
         Assert.assertEquals(savedItem.getTextLong(), textLong);
         Assert.assertEquals(savedItem.getTextShort(), textShort);
         Assert.assertTrue(genreList.contains(savedItem));
-
     }
-
 }

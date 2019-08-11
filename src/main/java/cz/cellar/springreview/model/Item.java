@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+//Výpis 18
+//Modelová třída pro položku s JPA anotacemi
 @Entity
 @Table(name="item")
 public class Item {
@@ -33,7 +35,6 @@ public class Item {
     private String textLong;
 
     public Item(){
-
     }
 
     public Item(@JsonProperty("name")String name, @JsonProperty("author")String author,@JsonProperty("year")int year, @JsonProperty("type")String type, @JsonProperty("genre")String genre, @JsonProperty("textShort")String textShort, @JsonProperty("textLong")String textLong) {

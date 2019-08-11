@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+//Výpis 21
+//Třída implementující UserDetails rozhraní
+//Součást zabezpečení
 public class CustomUserDetails implements UserDetails {
 
     private Person person;
 
-
     public CustomUserDetails(Person person){
         this.person=person;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -24,7 +25,6 @@ public class CustomUserDetails implements UserDetails {
         List<GrantedAuthority> authorities = new ArrayList<>();
         GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_"+this.person.getRole().getName());
         authorities.add(authority);
-
         return authorities;
 
     }

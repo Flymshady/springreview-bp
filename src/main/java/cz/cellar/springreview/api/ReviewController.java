@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+//Třída pro manipulaci s Review
 @RestController
 @RequestMapping(value = "/api/reviews/")
 public class ReviewController {
-
 
     private ReviewRepository reviewRepository;
     private ItemRepository itemRepository;
@@ -39,7 +39,6 @@ public class ReviewController {
     @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
     public Review getById(@PathVariable( value = "id") Long id){
         return reviewRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Review", "id", id));
-
     }
 
     @RequestMapping(value = "/item/{itemId}", method = RequestMethod.GET)

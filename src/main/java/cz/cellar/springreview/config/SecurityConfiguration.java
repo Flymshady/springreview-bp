@@ -2,7 +2,6 @@ package cz.cellar.springreview.config;
 
 import cz.cellar.springreview.repository.PersonRepository;
 import cz.cellar.springreview.service.CustomUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -16,6 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+//Výpis 23, 24
+//Konfigurace zabezpečení
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 @Configuration
@@ -31,10 +32,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)  {
-
         auth.authenticationProvider(authenticationProvider());
     }
 
+    //Konfigurace autentizace, autorizace
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
@@ -46,8 +47,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and().formLogin().permitAll()
         .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
-
-
     }
 
   @Bean
